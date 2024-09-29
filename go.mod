@@ -1,1 +1,3 @@
-module poker_app
+module poker_science
+
+go 1.23.1

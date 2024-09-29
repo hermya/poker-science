@@ -1,18 +1,18 @@
-package vendor
+package model
 
 type House int8
 
 const (
 	CLUBS House = iota
-	SPADES 
+	SPADES
 	HEARTS
 	DIAMONDS
 )
 
-var(
+var (
 	names = [...]string{"CLUBS", "SPADE", "HEARTS", "DIAMONDS"}
 )
 
 func toHouseString(house House) string {
-	return names[house];
+	return names[house]
 }

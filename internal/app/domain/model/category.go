@@ -1,4 +1,4 @@
-package vendor
+package model
 
 type Category int
 
@@ -22,5 +22,5 @@ var (
 )
 
 func getFullName(category Category) string {
-	return fullName[category];
+	return fullName[category]
 }
