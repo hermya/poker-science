@@ -1,18 +1,10 @@
-package main
+package calculation
 
 import (
 	"fmt"
 	"poker_science/internal/app/domain/model"
 	"poker_science/internal/app/domain/service/calculation"
 )
-
-func main() {
-	//fmt.Println("Hello, World!")
-	myCards := getSampleCardsForOneSpecialAndOneNonSpecialSequence()
-	fmt.Println("For cards: ", myCards)
-	fmt.Println("Score is: ", dummyCalculateSSScore(myCards))
-
-}
 
 func dummyCalculateSSScore(cards []model.Card) model.SSScore {
 	ppCountKeeper := calculation.GetNewSequenceKeeper()
