@@ -27,7 +27,7 @@ func GetNewSequenceKeeper() [13]map[model.House]bool {
 }
 
 func AddToSequenceKeeper(card model.Card, sequenceKeeper [13]map[model.House]bool) {
-	sequenceKeeper[model.GetOperationalValue(card.Value)-2][card.House] = true
+	sequenceKeeper[card.Value][card.House] = true
 }
 
 // EvaluateSSScore this function returns binary score (1, 7) based on existence of straight sequence along with its shard
@@ -44,8 +44,8 @@ func EvaluateSSScore(sequenceKeeper [13]map[model.House]bool) model.SSScore {
 		}
 		if count >= 5 {
 			ssscore.Score = 7
-			ssscore.Shard[shard][0] = int8(index - 2)
-			ssscore.Shard[shard][1] = int8(index + 2)
+			ssscore.Shard[shard][0] = int8(index - 4)
+			ssscore.Shard[shard][1] = int8(index)
 			shard++
 		}
 	}
@@ -59,8 +59,8 @@ func handleSpecialCase(ssscore model.SSScore, shard int, sequenceKeeper [13]map[
 		}
 	}
 	ssscore.Score = 7
-	ssscore.Shard[shard][0] = model.GetOperationalValue(model.ACE)
-	ssscore.Shard[shard][1] = model.GetOperationalValue(model.FIVE)
+	ssscore.Shard[shard][0] = int8(model.ACE)
+	ssscore.Shard[shard][1] = int8(model.FIVE)
 	return ssscore
 }
 

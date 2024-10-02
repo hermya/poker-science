@@ -6,8 +6,9 @@ type SSScore struct {
 }
 
 type FFScore struct {
-	Score int8
-	Cards []Card
+	Score  int8
+	Cards  map[Card]bool
+	FHouse House
 }
 
 func GetNewSSScore() SSScore {
