@@ -1,4 +1,4 @@
-package main
+package calculation
 
 import (
 	"fmt"
@@ -6,14 +6,7 @@ import (
 	"poker_science/internal/app/domain/service/calculation"
 )
 
-func main() {
-	myCards := getSampleCardsForPlatterFlush()
-	fmt.Println("For cards: ", myCards)
-	fmt.Println("Score is: ", dummyCalculateSSScore(myCards))
-
-}
-
-func dummyCalculateSSScore(cards []model.Card) model.FFScore {
+func dummyCalculateFFScore(cards []model.Card) model.FFScore {
 	ffHouseKeeper := calculation.GetNewHouseKeeper()
 	for _, card := range cards {
 		calculation.AddToHouseKeeper(card, ffHouseKeeper)

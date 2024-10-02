@@ -10,7 +10,8 @@ const (
 )
 
 var (
-	names = [...]string{"CLUBS", "SPADE", "HEARTS", "DIAMONDS"}
+	names  = [...]string{"CLUBS", "SPADE", "HEARTS", "DIAMONDS"}
+	Houses = [...]House{CLUBS, SPADES, HEARTS, DIAMONDS}
 )
 
 func toHouseString(house House) string {
