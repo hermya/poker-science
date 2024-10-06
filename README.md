@@ -4,6 +4,7 @@ A fast and scalable Poker game environment.
 
 ### Intent
 To immitate technical and mathematical challenges in a poker game environment. 
+
 Technical challenges:
 - Game room simulation
 - Scaling to multiple room creation
