@@ -8,6 +8,7 @@ Technical challenges:
 - Game room simulation
 - Scaling to multiple room creation
 - Data management at scale
+
 Mathematical challenges:
 - How to quickly calculate winner of a round
 - How to calculate probability at each step
