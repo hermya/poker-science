@@ -1,4 +1,4 @@
-package model
+package game
 
 type Value int8
 

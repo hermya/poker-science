@@ -1,4 +1,4 @@
-package model
+package game
 
 type Card struct {
 	Value Value

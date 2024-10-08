@@ -1,4 +1,4 @@
-package model
+package game
 
 type SSScore struct {
 	Score int8
@@ -9,6 +9,11 @@ type FFScore struct {
 	Score  int8
 	Cards  map[Card]bool
 	FHouse House
+}
+
+type PPScore struct {
+	Score      int8
+	CardValues map[Value]int8
 }
 
 func GetNewSSScore() SSScore {

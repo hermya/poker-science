@@ -1,30 +1,32 @@
 package calculation
 
-import "poker_science/internal/app/domain/model"
+import (
+	"poker_science/internal/app/domain/model/game"
+)
 
-func GetNewHouseKeeper() map[model.House]map[model.Card]bool {
-	return map[model.House]map[model.Card]bool{}
+func GetNewHouseKeeper() map[game.House]map[game.Card]bool {
+	return map[game.House]map[game.Card]bool{}
 }
 
-func AddToHouseKeeper(card model.Card, houseKeeper map[model.House]map[model.Card]bool) {
+func AddToHouseKeeper(card game.Card, houseKeeper map[game.House]map[game.Card]bool) {
 	houseKeeper[card.House][card] = true
 }
 
-func getNewFFScore() model.FFScore {
-	return model.FFScore{
+func getNewFFScore() game.FFScore {
+	return game.FFScore{
 		Score: 1,
-		Cards: map[model.Card]bool{},
+		Cards: map[game.Card]bool{},
 	}
 }
 
-func EvaluateFFScore(houseKeeper map[model.House]map[model.Card]bool) model.FFScore {
+func EvaluateFFScore(houseKeeper map[game.House]map[game.Card]bool) game.FFScore {
 	ffscore := getNewFFScore()
 
-	for index := range model.Houses {
-		if len(houseKeeper[model.Houses[index]]) >= 5 {
+	for index := range game.Houses {
+		if len(houseKeeper[game.Houses[index]]) >= 5 {
 			ffscore.Score = 8
-			ffscore.Cards = houseKeeper[model.Houses[index]]
-			ffscore.FHouse = model.Houses[index]
+			ffscore.Cards = houseKeeper[game.Houses[index]]
+			ffscore.FHouse = game.Houses[index]
 			break
 		}
 	}
