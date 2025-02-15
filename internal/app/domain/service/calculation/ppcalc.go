@@ -21,14 +21,6 @@ func fact(n int8) int8 {
 	return n * fact(n-1)
 }
 
-func getNewPPScore() game.PPScore {
-	ppscore := game.PPScore{
-		Score:      1,
-		CardValues: map[game.Value]int8{},
-	}
-	return ppscore
-}
-
 func GetNewCountKeeper() map[game.Value]int8 {
 	countKeeper := map[game.Value]int8{}
 	for _, card := range game.Cards {
@@ -44,7 +36,7 @@ func AddToCountKeeper(card game.Card, countKeeper map[game.Value]int8) {
 // EvaluatePPScore This function returns score for Pair hands. This includes P, 2P, 3P, 3P2P, and 4P
 func EvaluatePPScore(countKeeper map[game.Value]int8) game.PPScore {
 	pairs := map[int8]int8{}
-	ppscore := getNewPPScore()
+	ppscore := game.GetNewPPScore()
 	for value, count := range countKeeper {
 		if count > 1 {
 			pairs[count]++

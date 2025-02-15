@@ -23,3 +23,18 @@ func GetNewSSScore() SSScore {
 	}
 	return ssscore
 }
+
+func GetNewFFScore() FFScore {
+	return FFScore{
+		Score: 1,
+		Cards: map[Card]bool{},
+	}
+}
+
+func GetNewPPScore() PPScore {
+	ppscore := PPScore{
+		Score:      1,
+		CardValues: map[Value]int8{},
+	}
+	return ppscore
+}

@@ -12,15 +12,8 @@ func AddToHouseKeeper(card game.Card, houseKeeper map[game.House]map[game.Card]b
 	houseKeeper[card.House][card] = true
 }
 
-func getNewFFScore() game.FFScore {
-	return game.FFScore{
-		Score: 1,
-		Cards: map[game.Card]bool{},
-	}
-}
-
 func EvaluateFFScore(houseKeeper map[game.House]map[game.Card]bool) game.FFScore {
-	ffscore := getNewFFScore()
+	ffscore := game.GetNewFFScore()
 
 	for index := range game.Houses {
 		if len(houseKeeper[game.Houses[index]]) >= 5 {
