@@ -1,4 +1,4 @@
-package player
+package model
 
 type GlobalMeta struct {
 	Balance float64
