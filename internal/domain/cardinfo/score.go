@@ -1,4 +1,4 @@
-package game
+package cardinfo
 
 type SSScore struct {
 	Score int8

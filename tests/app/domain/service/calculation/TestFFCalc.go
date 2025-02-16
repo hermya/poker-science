@@ -2,11 +2,11 @@ package calculation
 
 import (
 	"fmt"
-	"poker_science/internal/app/domain/model/game"
-	"poker_science/internal/app/domain/service/calculation"
+	"poker_science/internal/domain/cardinfo"
+	"poker_science/internal/domain/core/calculation"
 )
 
-func dummyCalculateFFScore(cards []game.Card) game.FFScore {
+func dummyCalculateFFScore(cards []cardinfo.Card) cardinfo.FFScore {
 	ffHouseKeeper := calculation.GetNewHouseKeeper()
 	for _, card := range cards {
 		calculation.AddToHouseKeeper(card, ffHouseKeeper)
@@ -15,62 +15,62 @@ func dummyCalculateFFScore(cards []game.Card) game.FFScore {
 	return calculation.EvaluateFFScore(ffHouseKeeper)
 }
 
-func getSampleCardsForNoFlush() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.ACE, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.THREE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForNoFlush() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.ACE, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.THREE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsTieBreakingNoFlush() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.NINE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.JACK, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsTieBreakingNoFlush() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.NINE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.JACK, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForHardFlush() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.TWO, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.THREE, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.SIX, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.FOUR, House: game.HEARTS})
+func getSampleCardsForHardFlush() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TWO, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.THREE, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SIX, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FOUR, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForMidFlush() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.EIGHT, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.ACE, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.NINE, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.JACK, House: game.HEARTS})
+func getSampleCardsForMidFlush() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.EIGHT, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.ACE, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.NINE, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.JACK, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForPlatterFlush() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.TWO, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.THREE, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.FOUR, House: game.HEARTS})
+func getSampleCardsForPlatterFlush() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TWO, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.THREE, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FOUR, House: cardinfo.HEARTS})
 	return cards
 }

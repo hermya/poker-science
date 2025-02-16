@@ -1,4 +1,4 @@
-package game
+package cardinfo
 
 type Card struct {
 	Value Value

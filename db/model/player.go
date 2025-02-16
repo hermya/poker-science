@@ -5,5 +5,4 @@ type Player struct {
 	PlayerName      string
 	PlayerAccount   Account
 	PlayerGameState PlayerState
-	GameValues      Room
 }

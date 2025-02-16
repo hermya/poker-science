@@ -1,7 +1,7 @@
 package calculation
 
 import (
-	"poker_science/internal/app/domain/model/game"
+	"poker_science/internal/domain/cardinfo"
 )
 
 /*
@@ -21,22 +21,22 @@ func fact(n int8) int8 {
 	return n * fact(n-1)
 }
 
-func GetNewCountKeeper() map[game.Value]int8 {
-	countKeeper := map[game.Value]int8{}
-	for _, card := range game.Cards {
+func GetNewCountKeeper() map[cardinfo.Value]int8 {
+	countKeeper := map[cardinfo.Value]int8{}
+	for _, card := range cardinfo.Cards {
 		countKeeper[card] = 0
 	}
 	return countKeeper
 }
 
-func AddToCountKeeper(card game.Card, countKeeper map[game.Value]int8) {
+func AddToCountKeeper(card cardinfo.Card, countKeeper map[cardinfo.Value]int8) {
 	countKeeper[card.Value]++
 }
 
 // EvaluatePPScore This function returns score for Pair hands. This includes P, 2P, 3P, 3P2P, and 4P
-func EvaluatePPScore(countKeeper map[game.Value]int8) game.PPScore {
+func EvaluatePPScore(countKeeper map[cardinfo.Value]int8) cardinfo.PPScore {
 	pairs := map[int8]int8{}
-	ppscore := game.GetNewPPScore()
+	ppscore := cardinfo.GetNewPPScore()
 	for value, count := range countKeeper {
 		if count > 1 {
 			pairs[count]++

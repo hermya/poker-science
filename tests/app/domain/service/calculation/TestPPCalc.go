@@ -2,11 +2,11 @@ package calculation
 
 import (
 	"fmt"
-	"poker_science/internal/app/domain/model/game"
-	"poker_science/internal/app/domain/service/calculation"
+	"poker_science/internal/domain/cardinfo"
+	"poker_science/internal/domain/core/calculation"
 )
 
-func dummyCalculatePPScore(cards []game.Card) int8 {
+func dummyCalculatePPScore(cards []cardinfo.Card) int8 {
 	ppCountKeeper := calculation.GetNewCountKeeper()
 	for _, card := range cards {
 		calculation.AddToCountKeeper(card, ppCountKeeper)
@@ -15,74 +15,74 @@ func dummyCalculatePPScore(cards []game.Card) int8 {
 	return calculation.EvaluatePPScore(ppCountKeeper).Score
 }
 
-func getSampleCardsForNoPair() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.ACE, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.THREE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForNoPair() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.ACE, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.THREE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForOnePAndNoOtherPair() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.THREE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForOnePAndNoOtherPair() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.THREE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForTwoPAndNoOtherPair() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForTwoPAndNoOtherPair() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForThreePAndNoOtherPair() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.SEVEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForThreePAndNoOtherPair() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.SEVEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForFullHouseAndNoOtherPair() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForFullHouseAndNoOtherPair() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }
 
-func getSampleCardsForFourOfAKindAndNoOtherPair() []game.Card {
-	var cards []game.Card
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.HEARTS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.FIVE, House: game.CLUBS})
-	cards = append(cards, game.Card{Value: game.QUEEN, House: game.DIAMONDS})
-	cards = append(cards, game.Card{Value: game.TEN, House: game.SPADES})
-	cards = append(cards, game.Card{Value: game.KING, House: game.HEARTS})
+func getSampleCardsForFourOfAKindAndNoOtherPair() []cardinfo.Card {
+	var cards []cardinfo.Card
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.HEARTS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.FIVE, House: cardinfo.CLUBS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.QUEEN, House: cardinfo.DIAMONDS})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.TEN, House: cardinfo.SPADES})
+	cards = append(cards, cardinfo.Card{Value: cardinfo.KING, House: cardinfo.HEARTS})
 	return cards
 }

@@ -1,4 +1,4 @@
-package game
+package cardinfo
 
 type Value int8
 
